@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+    wordpress:
+        image: wordpress:latest
+        ports:
+            - ${WORDPRESS_PORT}:80
+        volumes:
+            - ./src:/var/www/html
+        env_file:
+            - .env
+    db:
+        image: mysql:latest
+        ports:
+            - ${MYSQL_PORT}:3306
+        env_file:
+            - .env
+
